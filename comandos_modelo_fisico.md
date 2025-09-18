@@ -8,7 +8,7 @@ CREATE DATABASE flybynight_lucasaguiar CHARACTER SET utf8mb4;
 ```sql
 CREATE TABLE fornecedores(
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) NOT NULL,
+    nome VARCHAR(100) NOT NULL
 );
 ```
 ```sql
@@ -31,5 +31,16 @@ CREATE TABLE fornecedores(
     );
 ```
 ```sql
+    CREATE TABLE lojas-produtos(
+        loja_id INT NOT NULL,
+        produto_id INT NOT NULL,
+        estoque INT NOT NULL,
 
+        -- criando uma chave primária composta --
+        PRIMARY KEY(loja_id, produto_id),
+        -- se na tabela de lojas uma loja for excluída, aqui na tabela lojas-produtos todos os registros de estoque desta loja excluída também serão excluídos --
+        FOREIGN KEY (loja_id) REFERENCES lojas(id) ON DELETE CASCADE,
+        -- Se um produto está sendo usado em um registro de estoque, não podemos permitir a exclusão [este já é o padrão]
+        FOREIGN KEY (produto_id) REFERENCES produto(id) ON DELETE RESTRICT
+    );
 ```

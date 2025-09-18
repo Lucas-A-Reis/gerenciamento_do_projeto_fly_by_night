@@ -31,7 +31,7 @@ CREATE TABLE fornecedores(
     );
 ```
 ```sql
-    CREATE TABLE lojas-produtos(
+    CREATE TABLE lojas_produtos(
         loja_id INT NOT NULL,
         produto_id INT NOT NULL,
         estoque INT NOT NULL,

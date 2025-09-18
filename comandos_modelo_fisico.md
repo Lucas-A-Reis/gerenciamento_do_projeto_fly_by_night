@@ -12,5 +12,8 @@ CREATE TABLE fornecedores(
 );
 ```
 ```sql
-    
+    CREATE TABLE lojas(
+        id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        nome VARCHAR(100) NOT NULL
+    );
 ```

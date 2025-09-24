@@ -11,8 +11,8 @@ CREATE DATABASE microblog CHARACTER SET utf8mb4;
 CREATE TABLE usuarios (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    senha VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
     tipo ENUM('admin', 'editor') NOT NULL
 );
 ```
@@ -21,8 +21,8 @@ CREATE TABLE usuarios (
 CREATE TABLE noticiais (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     titulo VARCHAR(100) NOT NULL,
-    resumo TEXT,
-    imagem VARCHAR(50),
+    resumo TEXT NOT NULL,
+    imagem VARCHAR(50) NOT NULL,
     datadodia DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     usuario_id INT NOT NULL,
     FOREIGN KEY(usuario_id) REFERENCES usuarios(id)

@@ -72,3 +72,21 @@ UPDATE lojas_produtos SET estoque = 7 WHERE loja_id = 4 AND produto_id = 1;
 ```sql
 DELETE FROM produto WHERE id = 13;
 ```
+
+## realizando consulta para visualização de dados
+
+```sql
+-- Count() FROM conta quantos registros há em uma tabela
+-- * significa todas as linhas da tabela
+SELECT COUNT(*) FROM produto;
+-- DISTINCT COUNT(*) conta registros diferentes, ignorando linhas repetidas
+-- Exibir atributos específicos de uma determinada tabela:
+SELECT nome, preco, quantidade FROM produto;
+-- Colocando uma condição:
+SELECT nome, preco, quantidade FROM produto
+WHERE preco > 1000;
+
+-- Exibir somente o nome e a descrição dos produtos do fornecedor Livraria Demais da Conta
+SELECT nome, descricao FROM produto
+WHERE fornecedor_id = 4;
+```

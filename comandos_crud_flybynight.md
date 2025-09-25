@@ -87,6 +87,14 @@ SELECT nome, preco, quantidade FROM produto
 WHERE preco > 1000;
 
 -- Exibir somente o nome e a descrição dos produtos do fornecedor Livraria Demais da Conta
-SELECT nome, descricao FROM produto
+SELECT nome, descricao, fornecedor_id FROM produto
 WHERE fornecedor_id = 4;
+--
+SELECT
+    produtos.nome
+    produtos.descricao
+    fornecedores.nome
+FROM produtos JOIN fornecedores
+ON produtos.fornecedor_id = fornecedores.id
+WHERE produtos.fornecedor_id = 4;
 ```

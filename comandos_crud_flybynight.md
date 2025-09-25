@@ -66,3 +66,9 @@ UPDATE produto SET preco = 125 WHERE fornecedor_id = 4;
 
 UPDATE lojas_produtos SET estoque = 7 WHERE loja_id = 4 AND produto_id = 1;
 ```
+
+## deletando registros
+
+```sql
+DELETE FROM produto WHERE id = 13;
+```

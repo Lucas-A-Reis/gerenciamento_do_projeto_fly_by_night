@@ -98,3 +98,4 @@ FROM produtos JOIN fornecedores
 ON produtos.fornecedor_id = fornecedores.id
 WHERE produtos.fornecedor_id = 4;
 ```
+

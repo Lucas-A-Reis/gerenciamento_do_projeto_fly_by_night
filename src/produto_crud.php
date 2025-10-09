@@ -2,8 +2,17 @@
 
 require_once "../conecta.php"
 
-function buscarProdutos(){
+function buscarProdutos($conexao){
+    
+    $sql = "SELECT 
+        produto.id, produto.nome, produto.preco, produto.quantidade, fornecedores.nome
+        FROM produto JOIN fornecedores
+        ON fornecedores.id = produto.fornecedor_id
+        ORDER BY produto.nome"
 
+    $consulta = $conexao->query($sql);
+
+    return $consulta->fetchAll();
 }
 
 ?>

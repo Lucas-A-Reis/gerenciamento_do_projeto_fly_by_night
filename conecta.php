@@ -6,7 +6,7 @@ Este arquivo é o responsavel por permitir a comunicação entre seu site/projet
  
  
 $servidor = "localhost"; //padraão XAMPP
-$banco = "flybynight_lucasaguiar";
+$banco = "fly_by_night";
 $usuario = "root"; // padrão no XAMPP
 $senha = ""; //padrão no XAMPP
  

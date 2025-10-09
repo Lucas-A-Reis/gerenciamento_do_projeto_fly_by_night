@@ -1,15 +1,8 @@
 <?php
  
-//Importa o arquivo de funções CRUD para Fornecedores
-require_once "../src/fornecedor_crud.php";
+require_once "../src/produto_crud.php";
  
-//Chama a função (passando a conexão) e recebe um array associativo com  os dados
-$fornecedores = buscarFornecedores($conexao);
- 
-/*Testando a exibição dos dados somente para o progamador
-echo"<pre>";
-var_dump($fornecedores); //Visualizar Array Associativo
-echo "</pre>"; */
+$produtos = buscarProdutos($conexao);
  
 ?>
 
@@ -36,17 +29,17 @@ echo "</pre>"; */
      <th> Nome </th>
      <th> Preço </th>
      <th> Quantidade </th>
-     <th> Ações </th>
      <th> Fornecedor </th>
+     <th> Ações </th>
  
 </tr>
-
+<?php foreach($produtos as $produto): ?>
 <tr>
   
-  <td> </td>
-  <td> </td>
-  <td> </td>
-  <td> </td>
+  <td> <?=$produto['nome_produto']?> </td>
+  <td> <?=$produto['preco']?> </td>
+  <td> <?=$produto['quantidade']?> </td>
+  <td> <?=$produto['nome']?> </td>
   <td>
 
     <a href="editar.php">Editar</a>
@@ -55,6 +48,7 @@ echo "</pre>"; */
   </td>
 
 </tr>
+<?php endforeach?>
 </table>
 
 <script src="../js/confirmar_exclusao.js"></script>

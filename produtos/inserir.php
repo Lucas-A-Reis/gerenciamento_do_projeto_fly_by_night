@@ -3,6 +3,20 @@
  
 require_once "../src/fornecedor_crud.php";
 $fornecedores = buscarFornecedores($conexao);
+
+require_once "../src/produto_crud.php";
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $nome = $_POST['nome'];
+    $preco = $_POST['preco'];
+    $quantidade = $_POST['quantidade'];
+    $fornecedor = $_POST['fornecedor'];
+    $descricao = $_POST['descricao'];
+
+    inserirProduto($conexao, $nome, $descricao, $preco, $quantidade, $fornecedor);
+
+    header("location:listar.php");
+    exit;
+}
  
 ?>
  

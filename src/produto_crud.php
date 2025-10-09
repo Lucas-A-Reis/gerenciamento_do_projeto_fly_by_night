@@ -15,4 +15,16 @@ function buscarProdutos($conexao){
     return $consulta->fetchAll();
 }
 
+function inserirProduto($conexao, $nome, $descricao, $preco, $quantidade, $fornecedor){
+
+    $sql = "INSERT INTO produto (nome, descricao, preco, quantidade, fornecedor_id) VALUES (:nome, :descricao, :preco, :quantidade, :fornecedor_id)";
+    $consulta = $conexao->prepare($sql);
+    $consulta->bindValue(':nome', $nome);
+    $consulta->bindValue(':descricao', $descricao);
+    $consulta->bindValue(':preco', $preco);
+    $consulta->bindValue(':quantidade', $quantidade);
+    $consulta->bindValue(':fornecedor_id', $fornecedor);
+    $consulta->execute();
+}
+
 ?>

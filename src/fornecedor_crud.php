@@ -21,7 +21,7 @@ function buscarFornecedores($conexao){
  
 }
  
-/* Receber o nome de um novo fornecedor e inserir no BD*/
+/* Receber o nome de um novo fornecedor e insere no BD*/
 function inserirFornecedor($conexao, $nome){
    
     /* Montando o comando SQL de INSERT e aplicando um "named parameter (parametro nomeado)". Um parametro nomeado nada mais é que reservar um espaço para atribuir um valor ao comando */

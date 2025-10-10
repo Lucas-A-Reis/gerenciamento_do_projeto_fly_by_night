@@ -10,7 +10,7 @@ $banco = "flybynight_lucasaguiar";
 $usuario = "root"; // padrão no XAMPP
 $senha = ""; //padrão no XAMPP
  
-/*Try/catch bloco condicional relacionado a verificalçoes de erro*/
+/*Try/catch bloco condicional relacionado a verificaçoes de erro*/
  
 try {
   //Criando um objeto de conexão usando a classe PDO (driver de acesso a BD)  
@@ -19,7 +19,7 @@ try {
     //Habilitando a exibição de erros
     $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  
-    //Configuração o modo de busca de dados para o formato ARRAY ASSOCIATIVO
+    //Configuraça o modo de busca de dados para o formato ARRAY ASSOCIATIVO
     $conexao->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 }catch(PDOException $erro){
         die("Erro ao conectar: ".$erro->getMessage());

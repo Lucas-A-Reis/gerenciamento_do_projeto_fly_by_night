@@ -2,20 +2,21 @@
 <?php
  
 require_once "../src/fornecedor_crud.php";
- 
-/* Se o formulario com metodopost for acionado*/
- 
+$fornecedores = buscarFornecedores($conexao);
+
+require_once "../src/produto_crud.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-    // Então vamos pegar o valor do campo chamado nome
     $nome = $_POST['nome'];
- 
-    // Chamamos a função, passamos os dados de conexão e o valor do nome digitado
-    inserirFornecedor($conexao, $nome);
- 
-    // Redirecionamos para a pagina listar.php
+    $preco = $_POST['preco'];
+    $quantidade = $_POST['quantidade'];
+    $fornecedor = $_POST['fornecedor'];
+    $descricao = $_POST['descricao'];
+
+    inserirProduto($conexao, $nome, $descricao, $preco, $quantidade, $fornecedor);
+
     header("location:listar.php");
- }
- 
+    exit;
+}
  
 ?>
  
@@ -36,6 +37,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
             <label for="nome">Nome:</label>
             <!-- atributo required indica um campo obrigatório -->
             <input type="text" name="nome" id="nome" required>
+        </div>
+        <div>
+            <label for="descricao">Descrição:</label>
+            <textarea name="descricao" id="descricao" rows="5"></textarea>
+        </div>
+
+        <div>
+            <label for="preco">Preço:</label>
+            <input type="number" name="preco" id="preco" required min="0" step="0.01">
+        </div>
+
+        <div>
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" name="quantidade" id="quantidade" required min = "0">
+        </div>
+
+        <div>
+            <label for="fornecedor">Fornecedor:</label>
+            <select name="fornecedor" id="fornecedor">
+                <option value=""></option>
+
+                <?php foreach ($fornecedores as $fornecedor): ?>
+                    <option value="<?=$fornecedor['id']?>">
+                        <?=$fornecedor['nome']?>
+                    </option>
+                <?php endforeach ?>
+            </select>
         </div>
         <button type="submit">Salvar</button>
     </form>

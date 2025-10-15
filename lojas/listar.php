@@ -13,7 +13,7 @@ $lojas = buscarLojas($conexao);
 </head>
 <body>
     <table>
-        <caption> Relação de lojas</caption>
+        <caption>Relação de lojas</caption>
             <tr>
                 <th> ID </th>
                 <th> Nome </th>
@@ -26,8 +26,8 @@ $lojas = buscarLojas($conexao);
                 <td><?=$loja['id']?></td>
                 <td><?=$loja['nome']?></td>
                 <td>
-                    <a href="editar.php">Editar</a>
-                    <a href="excluir.php">Excluir</a>
+                    <a href="editar.php?id=<?=$loja['id']?>">Editar</a>
+                    <a class="excluir" href="excluir.php?id=<?=$loja['id']?>">Excluir</a>
                 </td>
             </tr>
     <?php endforeach; ?>

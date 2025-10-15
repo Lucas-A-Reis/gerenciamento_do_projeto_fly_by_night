@@ -20,6 +20,7 @@ function buscarLojasPorID($conexao, $id){
     $stmt = $conexao-> query($sql);
     $stmt-> bindValue($id, ":id");
     $stmt-> execute();
+    return $stmt-> fetch();
 }
 
 function inserirLojas($conexao, $nome){
